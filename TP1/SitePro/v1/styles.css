@@ -1,0 +1,85 @@
+/* 为整个页面设置基本样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    
+}
+
+/* 左侧菜单栏和内容布局 */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* 左侧菜单栏样式 */
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 保持内容在顶部和底部 */
+    width: 200px;
+    background-color: #333;
+    padding: 20px;
+    color: white;
+}
+
+/* 图片样式 */
+img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 左侧信息区域 (包含图片和文字) */
+nav .info {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* 侧边栏菜单项样式 */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    background-color: black;
+    text-align: center;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: blue;
+}
+
+/* 右侧内容区域样式 */
+.content {
+    padding-left: 30px; /* 增加左边距，调节这个值可以调整距离 */
+    font-size: 16px; /* 设置字体大小 */
+    line-height: 1.6; /* 设置行间距，保证文字的可读性 */
+    color: #333; /* 设置文字颜色 */
+    max-width: 80%; /* 限制最大宽度，避免文字太宽 */
+}
+
+
+
+
+
+
+
+
+
+
+
