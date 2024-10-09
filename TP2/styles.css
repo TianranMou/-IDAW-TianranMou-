@@ -13,6 +13,7 @@ body {
 .container {
     display: flex;
     width: 100%;
+    position: relative;
 }
 
 /* 左侧菜单栏样式 */
@@ -73,6 +74,21 @@ nav ul li a:hover {
     max-width: 80%; /* 限制最大宽度，避免文字太宽 */
 }
 
+/* 图片居中并固定到底部的样式 */
+.image-center {
+    position: absolute; /* 使图片相对于父元素定位 */
+    bottom: 0; /* 固定到页面底部 */
+    left: 50%; /* 将图片的左侧对齐到页面的中间 */
+    transform: translateX(-50%); /* 将图片向左移动50%，使其居中 */
+    margin: 0 auto;
+    padding-bottom: 20px; /* 可选：调节底部的距离 */
+}
+
+.image-center img {
+    max-width: 50%; /* 控制图片的最大宽度 */
+    height: auto; /* 保持图片的纵横比 */
+    border-radius: 50%; /* 圆形显示 */
+}
 
 
 
