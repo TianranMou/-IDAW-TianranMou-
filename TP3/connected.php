@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// 检查是否有样式选择
+// Check if there's a choose of style
 if (isset($_GET['css'])) {
     $style = $_GET['css'];
     setcookie('preferred_style', $style, time() + (86400 * 30), "/");
