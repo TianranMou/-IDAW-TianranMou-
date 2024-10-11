@@ -1,8 +1,3 @@
-/* 将页面的字体颜色变为红色 */
 body {
-    color: red;
-}
-
-input[type="text"], input[type="password"], select, input[type="submit"], h1, h2, p, a {
     color: red;
 }
