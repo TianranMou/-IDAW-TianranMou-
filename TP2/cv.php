@@ -1,17 +1,15 @@
-<?php require_once('template_header.php'); ?>
 <?php
-require_once('template_menu.php');
-renderMenuToHTML('cv');
+$currentPageId = 'cv';
+require_once('template_header.php');
 ?>
+
 <h1>Mon CV</h1>
 <section>
     <h2>FORMATION</h2>
     <p><strong>Université du Nord-Est</strong> (09/2019 - 06/2023)<br>
     Science et ingénierie des matériaux<br>
-    Double diplôme de licencier<br>
-    Coopération sino-française avec Université Toulouse III - Paul Sabatier (spécialisation en énergie électrique et automatique)<br>
-    Matières principales : Électromagnétique, Ingénierie Électronique, Dynamique, Mécanique des Matériaux, Ingénierie Mécanique, Français ,etc.<br>
-    Circuit Analogique : 95/100</p>
+    Double diplôme de licence<br>
+    Coopération sino-française avec Université Toulouse III - Paul Sabatier (spécialisation en énergie électrique et automatique)</p>
 </section>
 
 <section>
@@ -36,5 +34,7 @@ renderMenuToHTML('cv');
         <li>Jeux vidéo</li>
     </ul>
 </section>
-<?php require_once('template_footer.php'); ?>
 
+<?php
+require_once('template_footer.php');
+?>

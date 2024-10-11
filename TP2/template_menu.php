@@ -1,30 +1,29 @@
 <?php
-
-// <ul>
-//                 <li><a href="index.html" id="currentpage">Accueil</a></li>
-//                 <li><a href="cv.html">CV</a></li>
-//                 <li><a href="projets.html">Projets</a></li>
-//             </ul>
-//         </nav>
-
 function renderMenuToHTML($currentPageId) {
-    // 定义菜单结构
+    // 定义菜单项
     $mymenu = array(
         'index' => array('Accueil'),
-        'cv' => array('Cv'),
+        'cv' => array('CV'),
         'projets' => array('Mes Projets')
     );
 
-    // 生成菜单的 HTML
+    // 输出菜单的 HTML
     echo '<nav class="menu"><ul>';
-    foreach($mymenu as $pageId => $pageParameters) {
+    
+    // 遍历菜单数组，生成菜单项
+    foreach ($mymenu as $pageId => $pageParameters) {
         echo '<li><a href="' . $pageId . '.php"';
+        
+        // 为当前页面加上 id="currentpage"
         if ($pageId == $currentPageId) {
             echo ' id="currentpage"';
         }
+        
+        // 菜单项文字
         echo '>' . $pageParameters[0] . '</a></li>';
     }
+    
     echo '</ul></nav>';
 }
-
+?>
 
