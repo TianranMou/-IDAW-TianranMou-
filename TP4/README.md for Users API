@@ -2,19 +2,30 @@
 This API provides CRUD operations for managing users.
 
 <Get>
+Retrieves user information.
 
+GET /users_api.php
+  Returns a list of all users.
 
+GET /users_api.php?id={id}
+  Returns information for a specific user.
 
+<Post>
+Creates a new user.
 
-<post>
+POST /users_api.php
+  Body: { "name": "Ken", "email": "Ken@streetfhighters.com" }
+  Creates a new user with the provided name and email.
 
+<Update>
+Updates an existing user's information.
 
+PUT /users_api.php?id={id}
+  Body: { "name": "Ken", "email": "Ken@streetfhighters.com" }
+  Updates the user with the specified id.
 
+<Delete>
+Removes a user from the database.
 
-<update>
-
-
-
-
-
-<
+DELETE /users_api.php?id={id}
+  Deletes the user with the specified id.
