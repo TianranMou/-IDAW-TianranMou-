@@ -31,6 +31,15 @@ $users = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Gestion des utilisateurs</title>
+    <style>
+        .edit-form { display: none; }
+    </style>
+    <script>
+        function toggleEditForm(id) {
+            var form = document.getElementById('edit-form-' + id);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </head>
 <body>
     <h1>Users</h1>
@@ -47,12 +56,16 @@ $users = $stmt->fetchAll();
             <td><?= htmlspecialchars($user['name']) ?></td>
             <td><?= htmlspecialchars($user['email']) ?></td>
             <td>
-                <form method="post" style="display: inline;">
+                <button onclick="toggleEditForm(<?= $user['id'] ?>)">Modifier</button>
+                <form method="post" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                    <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>">
-                    <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
-                    <input type="submit" name="update" value="Modifier">
                     <input type="submit" name="delete" value="Supprimer">
+                </form>
+                <form id="edit-form-<?= $user['id'] ?>" class="edit-form" method="post">
+                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                    <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>" required>
+                    <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+                    <input type="submit" name="update" value="Sauvegarder">
                 </form>
             </td>
         </tr>
