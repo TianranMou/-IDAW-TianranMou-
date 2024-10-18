@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestion des étudiants</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des étudiants</h1>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom*</th>
+                        <th>Prénom</th>
+                        <th>Date de naissance</th>
+                        <th>J'aime le cours Web</th>
+                        <th>Remarques</th>
+                        <th>CRUD</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h2>Ajouter un étudiant</h2>
+            <form id="addStudentForm" onsubmit="onFormSubmit(); return false;">
+                <div class="form-group">
+                    <label for="inputNom">Nom*</label>
+                    <input type="text" id="inputNom" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputPrenom">Prénom</label>
+                    <input type="text" id="inputPrenom">
+                </div>
+                <div class="form-group">
+                    <label for="inputDateNaissance">Date de naissance</label>
+                    <input type="date" id="inputDateNaissance">
+                </div>
+                <div class="form-group checkbox-group">
+                    <label for="inputAimeCours">
+                        <input type="checkbox" id="inputAimeCours">
+                        Adore le cours
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="inputRemarques">Remarques</label>
+                    <input type="text" id="inputRemarques">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function onFormSubmit() {
+            event.preventDefault();
+            
+            let nom = $("#inputNom").val().trim();
+            if (nom) {
+                let prenom = $("#inputPrenom").val();
+                let dateNaissance = $("#inputDateNaissance").val();
+                let aimeCours = $("#inputAimeCours").is(":checked") ? "oui" : "non";
+                let remarques = $("#inputRemarques").val();
+                
+                $("#studentsTableBody").append(`
+                    <tr>
+                        <td>${nom}</td>
+                        <td>${prenom}</td>
+                        <td>${dateNaissance}</td>
+                        <td>${aimeCours}</td>
+                        <td>${remarques}</td>
+                        <td>
+                            <button onclick="editRow(this)" class="btn-edit">Edit</button>
+                            <button onclick="deleteRow(this)" class="btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                `);
+                
+                $("#addStudentForm")[0].reset();
+            }
+        }
+
+        function editRow(btn) {
+            let row = $(btn).closest("tr");
+            let cells = row.find("td");
+            
+            $("#inputNom").val(cells.eq(0).text());
+            $("#inputPrenom").val(cells.eq(1).text());
+            $("#inputDateNaissance").val(cells.eq(2).text());
+            $("#inputAimeCours").prop("checked", cells.eq(3).text() === "oui");
+            $("#inputRemarques").val(cells.eq(4).text());
+            
+            row.remove();
+        }
+
+        function deleteRow(btn) {
+            $(btn).closest("tr").remove();
+        }
+    </script>
+</body>
+</html>
